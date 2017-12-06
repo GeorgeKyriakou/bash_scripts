@@ -1,15 +1,16 @@
 #!/bin/bash
-container_names=("container1" "container2" "container3" "container4" "container5")
+container_names=("coolstuff" "cartservice" "paymentservice" "coolstuff.com" "cs-mysql")
 echo "Starting containers"
 for name in "${container_names[@]}"; do
      docker start "${name}"
-    if [ "$name" = "mysql" ]; then
-        docker exec -it cs-mysql bash -c "service mysql status"
+    if [ "$name" = "cs-mysql" ]; then
         docker exec -it cs-mysql bash -c "service mysql start"
+        docker exec -it cs-mysql bash -c "service mysql status"
     else
-        docker exec -it "${name}" bash -c "service apache2 status"
         docker exec -it "${name}" bash -c "service apache2 start"
+        docker exec -it "${name}" bash -c "service apache2 status"
     fi;
 done
 docker ps -a
 docker inspect  cs-mysql | grep IPAddress
+exit
