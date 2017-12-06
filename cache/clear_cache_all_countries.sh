@@ -28,7 +28,7 @@ for domain in "${domains[@]}"; do
         done
     else
         for ip in "${rest_IPs[@]}"; do
-            addhost $ip "www.coolstuff."$domain
+            addhost $ip "www.xxx."$domain
             case $domain in
                 "se")
                 curl --request GET "http://www.xxx.$domain/$GIFT_OF_THE_DAY_URL_se?flushAllCache=1"
