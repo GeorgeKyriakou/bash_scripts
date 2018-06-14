@@ -1,5 +1,5 @@
 #!/bin/bash
-container_names=("coolstuff" "cartservice" "paymentservice" "coolstuff.com" "cs-mysql")
+container_names=("hello" "my" "name" "is" "jeronimo")
 echo "Starting containers"
 for name in "${container_names[@]}"; do
      docker start "${name}"
